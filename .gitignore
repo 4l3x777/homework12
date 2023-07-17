@@ -1,5 +1,11 @@
-# Prerequisites
-*.d
+mapreduce_*
+mapreduce.exe
+build
+
+.vscode
+
+#GIT
+*.git
 
 # Compiled Object files
 *.slo
