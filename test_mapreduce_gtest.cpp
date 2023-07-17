@@ -64,21 +64,29 @@ TEST_P(TestMapReduce, test_mapreduce)
     }
 }
 
+#if defined(WIN32)
 INSTANTIATE_TEST_CASE_P
 (
     MapReduce,
     TestMapReduce,
     ::testing::Values
     (
-#if defined(WIN32)
 		"..\\test\\corpus1.txt",
         "..\\test\\corpus2.txt"
-#else
-		"test/corpus1.txt",
-		"test/corpus2.txt"
-#endif
     )
 );
+#else
+INSTANTIATE_TEST_CASE_P
+(
+    MapReduce,
+    TestMapReduce,
+    ::testing::Values
+    (
+        "test/corpus1.txt",
+		"test/corpus2.txt"
+    )
+);
+#endif
 
 int main(int argc, char *argv[])
 {
